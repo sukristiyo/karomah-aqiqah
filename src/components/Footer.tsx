@@ -12,12 +12,12 @@ export default function Footer({ settings = {} }: { settings?: Record<string, st
             sendiri, juru sembelih bersertifikat JULEHA, dan tim masak profesional.
           </p>
           <div className="flex gap-4">
-            <Link href="https://facebook.com/karomahaqiqah" target="_blank" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1B4332] transition-colors" title="Facebook">
+            <Link href={settings.facebook || "https://facebook.com/karomahaqiqah"} target="_blank" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1B4332] transition-colors" title="Facebook">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
             </Link>
-            <Link href="https://instagram.com/karomahaqiqah" target="_blank" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1B4332] transition-colors" title="Instagram">
+            <Link href={settings.instagram || "https://instagram.com/karomahaqiqah"} target="_blank" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1B4332] transition-colors" title="Instagram">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
@@ -57,7 +57,7 @@ export default function Footer({ settings = {} }: { settings?: Record<string, st
           </Link>
           <div className="mt-2 flex items-start gap-2 text-sm leading-relaxed">
             <span>📍</span>
-            <span>Jl. Soekarno Hatta / Arengka I<br />Samping Indogrosir<br />Pekanbaru</span>
+            <span className="whitespace-pre-wrap">{settings.company_address || "Jl. Soekarno Hatta / Arengka I\nSamping Indogrosir\nPekanbaru"}</span>
           </div>
         </div>
       </div>

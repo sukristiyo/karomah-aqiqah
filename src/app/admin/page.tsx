@@ -55,6 +55,9 @@ export default function AdminDashboard() {
     const generalSettings = {
       topbar_text: settings.topbar_text,
       whatsapp_number: settings.whatsapp_number,
+      company_address: settings.company_address,
+      facebook: settings.facebook,
+      instagram: settings.instagram,
     };
     for (const key in generalSettings) {
       if (generalSettings[key as keyof typeof generalSettings] !== undefined) {
@@ -196,6 +199,44 @@ export default function AdminDashboard() {
               placeholder="Contoh: 628175777008 (Gunakan 62, tanpa + atau 0)"
             />
             <p className="text-xs text-gray-400 mt-1.5">Nomor ini akan digunakan untuk semua tombol pesan, hubungi admin, dll.</p>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">Alamat Lengkap</label>
+            <textarea
+              name="company_address"
+              rows={3}
+              value={settings.company_address || "Jl. Soekarno Hatta / Arengka I\nSamping Indogrosir\nPekanbaru"}
+              onChange={handleChange}
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all text-gray-800 resize-none"
+              placeholder="Masukkan alamat lengkap usaha..."
+            />
+            <p className="text-xs text-gray-400 mt-1.5">Akan ditampilkan di bagian bawah website (Footer).</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Link Facebook</label>
+              <input
+                type="text"
+                name="facebook"
+                value={settings.facebook || "https://facebook.com/karomahaqiqah"}
+                onChange={handleChange}
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all text-gray-800"
+                placeholder="Contoh: https://facebook.com/..."
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Link Instagram</label>
+              <input
+                type="text"
+                name="instagram"
+                value={settings.instagram || "https://instagram.com/karomahaqiqah"}
+                onChange={handleChange}
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all text-gray-800"
+                placeholder="Contoh: https://instagram.com/..."
+              />
+            </div>
           </div>
 
           <div className="pt-2">
