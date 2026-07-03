@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hijau-tua:  #1B4332;
+      --hijau-mid:  #2D6A4F;
+      --hijau-muda: #52B788;
+      --hijau-soft: #EAF5EF;
+      --emas:       #C9A84C;
+      --emas-muda:  #F0D080;
+      --emas-bg:    #FFFBEA;
+      --krem:       #FAF6EE;
+      --putih:      #FFFFFF;
+      --teks:       #1A1A1A;
+      --abu:        #6B7280;
+      --border:     #E4DDD0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--krem); color: var(--teks); line-height: 1.6; }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--emas); text-align: center;
+      padding: .5rem 5vw; font-size: .82rem; font-weight: 700; color: var(--hijau-tua);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--hijau-tua);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 66px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.3);
+    }
+    .nav-brand { display: flex; align-items: center; gap: .75rem; }
+    .nav-logo {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--emas); color: var(--hijau-tua);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Amiri', serif; font-size: 1rem; font-weight: 700;
+    }
+    .nav-brand-text strong { color: #fff; font-size: .98rem; display: block; }
+    .nav-brand-text span { color: var(--emas); font-size: .72rem; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--emas); }
+    .nav-cta {
+      background: var(--emas); color: var(--hijau-tua);
+      border: none; border-radius: 8px; padding: .55rem 1.25rem;
+      font-weight: 700; font-size: .88rem; cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--emas-muda); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--hijau-tua) 0%, var(--hijau-mid) 60%, #3a8f68 100%);
+      padding: 80px 5vw 70px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      position: relative; overflow: hidden;

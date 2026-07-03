@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PackageType {
+  id        String    @id @default(uuid())
+  name      String
+  icon      String
+  packages  Package[]
+  createdAt DateTime  @default(now())
+}
+
+model Package {
+  id            String   @id @default(uuid())
+  name          String
+  description   String?
+  price         String?
+  features      String[]
+  isFeatured    Boolean  @default(false)
+  iconType      String?  // Keep for backwards compatibility
+  packageTypeId String?
+  packageType   PackageType? @relation(fields: [packageTypeId], references: [id])
+  imageUrl      String?  // URL to package image
+  imagePosition String?  // CSS object-position (e.g., 'center', 'top', 'bottom', 'left', 'right')
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Gallery {
+  id        String   @id @default(uuid())
+  imageUrl  String
+  altText   String?
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  type      String   @default("text") // 'text' or 'image'
+  name      String
+  role      String?
+  content   String?
+  rating    Int      @default(5)
+  avatar    String?  
+  imageUrl  String?  // For screenshot images
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value String
+}
+
+model Feature {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  icon        String
+  order       Int      @default(0)
+}
+
+model Dish {
+  id        String   @id @default(uuid())
+  name      String
+  imageUrl  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
